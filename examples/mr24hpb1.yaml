@@ -9,6 +9,7 @@ esp32:
   framework:
     type: arduino
 
+# Enable Home Assistant API
 api:
   encryption:
     key: "{{YOUR ENCRYPTION KEY}}"
