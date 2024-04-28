@@ -1,7 +1,9 @@
 substitutions:
   device_id: my-mr24hpb1-sensor
   device_name: My MR24HPB1 Sensor
-
+  uart_rx_pin: "9"
+  uart_tx_pin: "8"
+  
 esp32:
   board: esp32dev
   framework:
@@ -17,6 +19,10 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: ${device_id}
+    password: "{{PASSWORD}}"
+    
 packages:
-  device_base: !include packages/mr24hpb1.yaml
+  device_base: !include external_components/mr24/packages/mr24hpb1.yaml
